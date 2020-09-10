@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".IntroActivity">
+
+    <ImageView
+        android:id="@+id/imageMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:contentDescription="TODO"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/image_main"
+        tools:layout_editor_absoluteX="-105dp"
+        tools:layout_editor_absoluteY="121dp" />
+
+    <ImageView
+        android:id="@+id/logoWhite"
+        android:layout_width="112dp"
+        android:layout_height="104dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageMain"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageMain"
+        app:layout_constraintTop_toTopOf="@+id/imageMain"
+        app:srcCompat="@drawable/logo_white" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/light"
+        android:text="Choose quality food"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageMain"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageMain"
+        app:layout_constraintTop_toBottomOf="@+id/logoWhite" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="370dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/b_orange"
+        android:bottomLeftRadius="10dp"
+        android:bottomRightRadius="10dp"
+        android:fontFamily="@font/medium"
+        android:text="Check Menu"
+        android:textAllCaps="false"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="370dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/shape"
+        android:orientation="horizontal"
+        android:radius="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="316dp"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:fontFamily="@font/medium"
+            android:gravity="center"
+            android:paddingLeft="40dp"
+            android:text="Choose your restaurant"
+            android:textAlignment="viewStart"
+            android:textColor="#727372"
+            android:textSize="18sp" />
+
+
+        <ImageView
+            android:id="@+id/Arrow"
+            android:layout_width="52dp"
+
+            android:layout_height="62dp"
+            app:srcCompat="@drawable/i_arrow_down_gray" />
+
+    </LinearLayout><![CDATA[
+
+
+
+
+    tools:layout_editor_absoluteY="0dp" />
+
+]]>
+</androidx.constraintlayout.widget.ConstraintLayout>

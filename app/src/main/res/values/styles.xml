@@ -1,0 +1,33 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="BlackBackground" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:statusBarColor">@color/cardview_light_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:navigationBarColor">@color/cardview_light_background</item>
+        <item name="android:colorBackground">@color/cardview_light_background</item>
+    </style>
+
+    <style name="WhiteBackground" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="TranslucentStatusBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">#FFC107</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">#000000</item>
+        <!-- Used for the background -->
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:windowBackground">@drawable/popup_background</item>
+    </style>
+
+
+</resources>
