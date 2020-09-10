@@ -209,7 +209,7 @@
                     android:layout_weight="0.5"
                     android:fontFamily="@font/bold"
                     android:gravity="center_vertical|center"
-                    android:text="TextView"
+                    android:text="$ 24"
                     android:textColor="#F0821A"
                     android:textSize="18sp" />
 
