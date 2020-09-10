@@ -51,7 +51,7 @@
         android:id="@+id/button"
         android:layout_width="370dp"
         android:layout_height="62dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/b_orange"
         android:bottomLeftRadius="10dp"
         android:bottomRightRadius="10dp"

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:background="@color/cardview_light_background"
     tools:context=".ShopActivity">
 
@@ -44,10 +44,10 @@
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_height="62dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
         android:background="@drawable/text_field_orange"
         android:orientation="horizontal"
         android:radius="11dp"
@@ -59,9 +59,9 @@
             android:id="@+id/textView1"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
+            android:layout_weight="0.9"
             android:alpha="1"
             android:fontFamily="@font/semibold"
-            android:layout_weight="0.9"
             android:gravity="center_vertical|right"
             android:paddingLeft="30dp"
             android:text="Choose your restaurant"
@@ -74,9 +74,9 @@
             android:id="@+id/Arrow"
             android:layout_width="52dp"
 
-            android:layout_weight="0.1"
-            android:layout_gravity="right"
             android:layout_height="62dp"
+            android:layout_gravity="right"
+            android:layout_weight="0.1"
             app:srcCompat="@drawable/i_arrow_down_orange" />
 
     </LinearLayout>
@@ -84,12 +84,12 @@
     <LinearLayout
         android:id="@+id/linearLayout"
 
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,17 +137,18 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
-        card_view:cardCornerRadius="10dp"
         app:cardBackgroundColor="#ffffff"
+        app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" >
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        card_view:cardCornerRadius="11dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -156,50 +157,54 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.9"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
                 android:scaleType="centerCrop"
                 card_view:srcCompat="@drawable/im_food_01" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="173dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.9"
+                android:layout_weight="0.05"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.4"
+                    android:layout_weight="0"
                     android:fontFamily="@font/bold"
-                    android:text="French Toasts"
                     android:gravity="center_vertical|left"
-                    android:textColor="#504D4B"
-                    android:textAlignment="textStart"
                     android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="French Toasts"
+                    android:textAlignment="textStart"
+                    android:textColor="#504D4B"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textView8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:gravity="center_vertical|left"
-                    android:text="TextView"
+                    android:layout_weight="0"
+                    android:alpha="0.5"
                     android:fontFamily="@font/bold"
-                    android:textAlignment="textStart"
-                    android:alpha="0.6"
+                    android:gravity="center_vertical|left"
                     android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp"
+                    android:textAlignment="textStart"
                     android:textColor="#504D4B"
-                    android:textSize="18sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.9"
+                android:layout_weight="0"
                 android:orientation="vertical">
 
                 <TextView
@@ -208,27 +213,37 @@
                     android:layout_height="35dp"
                     android:layout_weight="0.5"
                     android:fontFamily="@font/bold"
-                    android:gravity="center_vertical|center"
-                    android:text="TextView"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="15dp"
+                    android:text="$12"
                     android:textColor="#F0821A"
                     android:textSize="18sp" />
-
+                <!--                <Button-->
+                <!--                    android:id="@+id/button2"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="31dp"-->
+                <!--                    android:layout_weight="0.5"-->
+                <!--                    android:fontFamily="@font/bold"-->
+                <!--                    android:text="+"-->
+                <!--                    android:background="@drawable/b_add_menu"-->
+                <!--                    android:textSize="30sp"/>-->
                 <ImageButton
                     android:id="@+id/imageButton3"
                     android:layout_width="match_parent"
                     android:layout_height="31dp"
-                    android:layout_weight="0.6"
-                    android:background="@color/cardview_light_background"
-                    android:scaleType="fitEnd"
-                    card_view:srcCompat="@drawable/b_add_menu" />
+                    android:layout_weight="0.5"
+                    android:background="@drawable/b_add_menu"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/i_add" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/footer_cart_placeholder"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -240,11 +255,11 @@
             android:id="@+id/imageView6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.7"
-            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="0.7"
             app:srcCompat="@drawable/i_cart" />
 
         <TextView
@@ -263,15 +278,26 @@
             android:id="@+id/button5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.6"
-            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="7dp"
             android:layout_marginTop="7dp"
             android:layout_marginRight="7dp"
-            android:layout_marginLeft="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_weight="0.6"
 
             android:background="@drawable/b_cart_arrow" />
 
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="409dp"
+        android:layout_height="403dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
     <![CDATA[
 
 
