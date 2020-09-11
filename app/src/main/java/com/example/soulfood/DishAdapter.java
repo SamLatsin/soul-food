@@ -46,7 +46,8 @@ public class DishAdapter extends RecyclerView.Adapter<DishAdapter.ViewHolder> {
         holder.mImageView.setImageResource(currentItem.getPhotoId());
         holder.mTextView1.setText(currentItem.getDishName());
         holder.mTextView2.setText(currentItem.getDishDesc());
-        holder.mTextView3.setText(currentItem.getDishPrice());
+        holder.mTextView3.setText("$" + Integer.toString(currentItem.getDishPrice()));
+
     }
 
     @Override

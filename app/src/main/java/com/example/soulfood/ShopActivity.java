@@ -57,14 +57,17 @@ public class ShopActivity extends AppCompatActivity {
         dishList.add(new DishItem("French Toasts", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp", 12, R.drawable.im_food_01));
         dishList.add(new DishItem("Avocado & Egg Toast", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp", 16, R.drawable.im_food_02));
         dishList.add(new DishItem("Fruits Plate", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp", 19, R.drawable.im_food_03));
+        dishList.add(new DishItem("Chef's breakfaast", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp", 22, R.drawable.im_food_04));
+        dishList.add(new DishItem("French Toasts", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp", 12, R.drawable.im_food_01));
+        dishList.add(new DishItem("Avocado & Egg Toast", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp", 16, R.drawable.im_food_02));
+        dishList.add(new DishItem("Fruits Plate", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp", 19, R.drawable.im_food_03));
+        dishList.add(new DishItem("Chef's breakfaast", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp", 22, R.drawable.im_food_04));
 
-//        mRecyclerView = findViewById(R.id.rv);
-//        mRecyclerView.setHasFixedSize(true);
-//        mLayoutManager = new LinearLayoutManager(this);
-//        mAdapter = new DishAdapter(dishList);
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//        mRecyclerView.setAdapter(mAdapter);
-
-
+        mRecyclerView = findViewById(R.id.rv);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this);
+        mAdapter = new DishAdapter(dishList);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
     }
 }
