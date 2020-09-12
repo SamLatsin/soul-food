@@ -27,8 +27,10 @@ public class IntroActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );
+
         final Intent intent = new Intent(IntroActivity.this, ShopActivity.class);
         intent.putExtra("restaurant", "Choose your restaurant");
+
         Button btn = (Button)findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,7 +10,9 @@
         android:supportsRtl="true">
 
         <activity android:name=".BasketActivity"></activity>
-        <activity android:name=".ItemActivity" />
+        <activity
+            android:name=".ItemActivity"
+            android:theme="@style/BlackBackground"/>
         <activity
             android:name=".ShopActivity"
             android:screenOrientation="portrait"

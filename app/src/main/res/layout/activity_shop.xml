@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_light_background"
+    android:background="#FFFFFF"
     tools:context=".ShopActivity">
 
     <ImageView
@@ -25,6 +25,8 @@
         android:layout_height="48dp"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="15dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         android:background="@drawable/b_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +35,8 @@
         android:id="@+id/imageButton2"
         android:layout_width="80dp"
         android:layout_height="45dp"
-
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         android:layout_marginTop="50dp"
         android:background="@drawable/menu_placeholder"
         android:scaleType="fitCenter"
@@ -51,6 +54,8 @@
         android:background="@drawable/text_field_orange"
         android:orientation="horizontal"
         android:radius="11dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3">
@@ -103,6 +108,8 @@
             android:fontFamily="@font/bold"
             android:text="All items"
             android:textAlignment="center"
+            android:foreground="@drawable/button_ripple"
+            android:clickable="true"
             android:textColor="#F0821A" />
 
         <TextView
@@ -113,6 +120,8 @@
             android:fontFamily="@font/bold"
             android:text="Special"
             android:textAlignment="center"
+            android:foreground="@drawable/button_ripple"
+            android:clickable="true"
             android:textColor="#504D4B" />
 
         <TextView
@@ -123,6 +132,8 @@
             android:fontFamily="@font/bold"
             android:text="Breakfast"
             android:textAlignment="center"
+            android:foreground="@drawable/button_ripple"
+            android:clickable="true"
             android:textColor="#504D4B" />
 
         <TextView
@@ -133,6 +144,8 @@
             android:fontFamily="@font/bold"
             android:text="Pizza"
             android:textAlignment="center"
+            android:foreground="@drawable/button_ripple"
+            android:clickable="true"
             android:textColor="#504D4B" />
     </LinearLayout>
 
@@ -166,12 +179,12 @@
             android:layout_weight="1"
             android:fontFamily="@font/semibold"
             android:gravity="center_vertical"
-            android:text="2 items    $ 24.00"
+            android:text="0 items    $ 0.00"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
-        <Button
+        <ImageButton
             android:id="@+id/button5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -180,7 +193,8 @@
             android:layout_marginRight="7dp"
             android:layout_marginBottom="7dp"
             android:layout_weight="0.6"
-
+            android:foreground="@drawable/button_ripple"
+            android:clickable="true"
             android:background="@drawable/b_cart_arrow" />
 
     </LinearLayout>
@@ -191,7 +205,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/cardview_light_background"
+        android:background="#FFFFFF"
         android:requiresFadingEdge="horizontal|vertical"
         android:fadingEdgeLength="30dp"
         android:overScrollMode="never"

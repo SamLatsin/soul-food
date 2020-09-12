@@ -53,15 +53,15 @@
         android:layout_height="62dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/b_orange"
-        android:bottomLeftRadius="10dp"
-        android:bottomRightRadius="10dp"
+
         android:fontFamily="@font/medium"
         android:text="Check Menu"
         android:textAllCaps="false"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
-        android:topLeftRadius="10dp"
-        android:topRightRadius="10dp"
+
+        android:foreground="@drawable/button_ripple"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="@+id/imageMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -74,6 +74,8 @@
         android:background="@drawable/shape"
         android:orientation="horizontal"
         android:radius="11dp"
+        android:foreground="@drawable/button_ripple"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

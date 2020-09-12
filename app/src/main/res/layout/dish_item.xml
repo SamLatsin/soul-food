@@ -13,6 +13,10 @@
         android:layout_height="100dp"
         android:layout_margin="20dp"
         android:gravity="center_vertical"
+
+        android:foreground="@drawable/button_ripple"
+
+
         app:cardBackgroundColor="#ffffff"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -96,6 +100,8 @@
                     android:layout_weight="0.5"
                     android:background="@drawable/b_add_menu"
                     android:scaleType="fitCenter"
+                    android:foreground="@drawable/button_ripple"
+                    android:clickable="true"
                     app:srcCompat="@drawable/i_add" />
             </LinearLayout>
         </LinearLayout>
