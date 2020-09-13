@@ -39,24 +39,6 @@ public class IntroActivity extends AppCompatActivity {
             }
         });
 
-        btn.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        v.getBackground().setColorFilter(0xe0f47521, PorterDuff.Mode.SRC_ATOP);
-                        v.invalidate();
-                        break;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        v.getBackground().clearColorFilter();
-                        v.invalidate();
-                        break;
-                    }
-                }
-                return false;
-            }
-        });
-
 
         LinearLayout menu_photos = (LinearLayout )findViewById(R.id.linearLayout1);
         menu_photos.setOnClickListener(new View.OnClickListener() {

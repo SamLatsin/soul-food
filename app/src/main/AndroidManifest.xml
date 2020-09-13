@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
 
-        <activity android:name=".BasketActivity"></activity>
+        <activity
+            android:name=".BasketActivity"
+            android:theme="@style/WhiteBackground"/>
         <activity
             android:name=".ItemActivity"
             android:theme="@style/BlackBackground"/>
