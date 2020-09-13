@@ -12,12 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ItemActivity extends AppCompatActivity {
-    String dishName = "";
-    String dishDesc = "";
-    int dishPrice = 0;
-    int dishPhotoId = 0;
-    int item_count = 1;
     int item_full_price;
+    int item_count = 1;
     boolean fav_state = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +23,9 @@ public class ItemActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );
-        setItemProp();
+
+        final DishItem dishItem = (DishItem)getIntent().getSerializableExtra("dishItem");
+        setItemProp(dishItem);
 
         final TextView item_count_text = (TextView)findViewById(R.id.currentItemCount);
         final TextView item_full_price_text = (TextView)findViewById(R.id.fullItemPrice);
@@ -42,7 +40,7 @@ public class ItemActivity extends AppCompatActivity {
         plus_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                item_full_price += dishPrice;
+                item_full_price += dishItem.getDishPrice();
                 item_count += 1;
                 item_count_text.setText(Integer.toString(item_count));
                 item_full_price_text.setText("$" + Integer.toString(item_full_price));
@@ -52,8 +50,8 @@ public class ItemActivity extends AppCompatActivity {
         minus_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!item_count_text.getText().toString().equals("1")) {
-                    item_full_price -= dishPrice;
+                if (!item_count_text.getText().toString().equals("0")) {
+                    item_full_price -= dishItem.getDishPrice();
                     item_count -= 1;
                     item_count_text.setText(Integer.toString(item_count));
                     item_full_price_text.setText("$" + Integer.toString(item_full_price));
@@ -74,23 +72,33 @@ public class ItemActivity extends AppCompatActivity {
                 }
             }
         });
+        final Button add_to_order = (Button)findViewById(R.id.orderButton);
+        add_to_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dishItem.setDishCount(item_count);
+                Intent intent = new Intent(ItemActivity.this, ShopActivity.class);
+                intent.putExtra("itemCount", item_count);
+
+                intent.putExtra("dishId", getIntent().getExtras().getInt("dishId"));
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
     }
 
-    public void setItemProp() {
-
-
-        dishName = getIntent().getExtras().getString("dishName");
-        dishDesc = getIntent().getExtras().getString("dishDesc");
-        dishPrice = getIntent().getExtras().getInt("dishPrice");
-        dishPhotoId = getIntent().getExtras().getInt("dishPhotoId");
+    public void setItemProp(DishItem dishItem) {
         TextView tv1 = (TextView)findViewById(R.id.textView7);
         TextView tv2 = (TextView)findViewById(R.id.textView8);
         TextView tv3 = (TextView)findViewById(R.id.fullItemPrice);
-        item_full_price += dishPrice;
+        TextView item_count_text = (TextView)findViewById(R.id.currentItemCount);
         ImageView img1 = (ImageView)findViewById(R.id.imageView4);
-        tv1.setText(dishName);
-        tv2.setText(dishDesc);
-        tv3.setText("$" + Integer.toString(dishPrice));
-        img1.setImageResource(dishPhotoId);
+        item_count_text.setText(Integer.toString(dishItem.getDishCount()));
+        item_count = dishItem.getDishCount();
+        item_full_price += item_count * dishItem.getDishPrice();
+        tv1.setText(dishItem.getDishName());
+        tv2.setText(dishItem.getDishDesc());
+        tv3.setText("$" + Integer.toString(item_full_price));
+        img1.setImageResource(dishItem.getPhotoId());
     }
 }

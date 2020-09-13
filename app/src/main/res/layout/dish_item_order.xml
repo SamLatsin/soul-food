@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="20dp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="0.3" >
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/im_food_01" />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:text="French Toasts"
+                android:fontFamily="@font/bold"
+                android:gravity="center_vertical|left"
+                />
+
+            <LinearLayout
+                android:layout_weight="0.5"
+
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+
+                android:background="@drawable/minus_plus_placeholder"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <Button
+                    android:id="@+id/minusButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:foreground="@drawable/button_ripple"
+                    android:clickable="true"
+                    android:background="@drawable/b_minus" />
+
+                <TextView
+                    android:id="@+id/currentItemCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/bold"
+                    android:gravity="center_vertical|center"
+                    android:text="1"
+                    android:textColor="#504D4B"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/plusButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:foreground="@drawable/button_ripple"
+                    android:clickable="true"
+                    android:background="@drawable/b_plus" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:text="TextView" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

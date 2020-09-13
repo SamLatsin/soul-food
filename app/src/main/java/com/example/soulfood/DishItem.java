@@ -14,6 +14,7 @@ public class DishItem implements Serializable {
         mDishPrice = dishPrice;
         mPhotoId = photoId;
     }
+
     public String getDishName(){
         return mDishName;
     }
@@ -28,18 +29,6 @@ public class DishItem implements Serializable {
     }
     public int getDishCount(){
         return mDishCount;
-    }
-    public void setDishName(String DishName) {
-        this.mDishName = DishName;
-    }
-    public void setDishDesc(String DishDesc) {
-        this.mDishDesc = DishDesc;
-    }
-    public void setDishPrice(int DishPrice) {
-        this.mDishPrice = DishPrice;
-    }
-    public void setPhotoId(int PhotoId) {
-        this.mPhotoId = PhotoId;
     }
     public void setDishCount(int DishCount) {
         this.mDishCount = DishCount;

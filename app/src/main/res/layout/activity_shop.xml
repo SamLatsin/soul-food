@@ -185,7 +185,7 @@
             android:textSize="18sp" />
 
         <ImageButton
-            android:id="@+id/button5"
+            android:id="@+id/basketButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="7dp"

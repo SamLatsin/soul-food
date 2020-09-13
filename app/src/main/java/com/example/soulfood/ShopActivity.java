@@ -17,6 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,8 +29,8 @@ public class ShopActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private DishAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private int resultPrice = 0;
-    private int selectedItems = 0;
+    private int final_price = 0;
+    private int final_count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,8 @@ public class ShopActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         );
 
+        String current_restaurant = "Choose your restaurant";
+        ((GlobalOrder) this.getApplication()).setCurrentRestaurant("Choose your restaurant");
         String restaurant_name = "";
         restaurant_name = getIntent().getExtras().getString("restaurant");
         TextView tv = (TextView)findViewById(R.id.textView1);
@@ -61,13 +64,13 @@ public class ShopActivity extends AppCompatActivity {
                         TextView tv = (TextView)findViewById(R.id.textView1);
                         tv.setText(items[which]);
                         tv.setTextColor(Color.BLACK);
+                        test(items[which].toString());
                     }
                 });
                 adb.setTitle("Choose your restaurant");
                 adb.show();
             }
         });
-
         final TextView  tv1 = (TextView )findViewById(R.id.textView2);
         final TextView  tv2 = (TextView )findViewById(R.id.textView3);
         final TextView  tv3 = (TextView )findViewById(R.id.textView4);
@@ -108,8 +111,38 @@ public class ShopActivity extends AppCompatActivity {
                 tv4.setTextColor(Color.parseColor("#F0821A"));
             }
         });
+        ImageButton basket_button = (ImageButton)findViewById(R.id.basketButton);
+        basket_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShopActivity.this, BasketActivity.class);
+                startActivity(intent);
+            }
+        });
 
+    }
 
+    public void test(String restaurant) {
+        ((GlobalOrder) this.getApplication()).setCurrentRestaurant(restaurant);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data == null) {
+            return;
+        }
+        dishList.get(data.getIntExtra("dishId", 0)).setDishCount(data.getIntExtra("itemCount", 0));
+        final_count = 0;
+        final_price = 0;
+        for(int position = 0; position<dishList.size(); position++) {
+            dishList.get(position).getDishPrice();
+            dishList.get(position).getDishCount();
+            final_price += dishList.get(position).getDishCount() * dishList.get(position).getDishPrice();
+            final_count += dishList.get(position).getDishCount();
+        }
+        TextView  tv = (TextView )findViewById(R.id.textView6);
+        tv.setText(Integer.toString(final_count) +" items    $ " + Integer.toString(final_price) + ".00");
     }
 
     public void createExampleList() {
@@ -134,25 +167,19 @@ public class ShopActivity extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new DishAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Log.d("cardview", Integer.toString(position));
                 Intent intent = new Intent(ShopActivity.this, ItemActivity.class);
-                intent.putExtra("dishName", dishList.get(position).getDishName());
-                intent.putExtra("dishDesc", dishList.get(position).getDishDesc());
-                intent.putExtra("dishPrice", dishList.get(position).getDishPrice());
-                intent.putExtra("dishPhotoId", dishList.get(position).getPhotoId());
-                startActivity(intent);
-//                overridePendingTransition( R.anim.slide_in_up, R.anim.slide_out_up );
-//                Integer.toString(dishList.get(position))
+                intent.putExtra("dishId", position);
+                intent.putExtra("dishItem", dishList.get(position));
+                startActivityForResult(intent, 1);
             }
 
             @Override
             public void onButtonClick(int position) {
-                Log.d("button", Integer.toString(position));
-                selectedItems += 1;
-                resultPrice += dishList.get(position).getDishPrice();
-                Log.d("price", Integer.toString(resultPrice));
+                final_count += 1;
+                dishList.get(position).setDishCount(final_count);
+                final_price += dishList.get(position).getDishPrice();
                 TextView  tv = (TextView )findViewById(R.id.textView6);
-                tv.setText(Integer.toString(selectedItems) +" items    $ " + Integer.toString(resultPrice) + ".00");
+                tv.setText(Integer.toString(final_count) +" items    $ " + Integer.toString(final_price) + ".00");
             }
         });
     }
