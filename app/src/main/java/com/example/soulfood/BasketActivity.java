@@ -40,13 +40,13 @@ public class BasketActivity extends AppCompatActivity {
         });
         dishList = (ArrayList<DishItem>) getIntent().getSerializableExtra("dishList");
         dishOrder = new ArrayList<>();
-
-
+        
         for(int pos = 0; pos < dishList.size(); pos++) {
-
             if (dishList.get(pos).getDishCount() != 0) {
-
                 dishOrder.add(dishList.get(pos));
+            }
+        }
+        buildRecyclerView();
     }
 
     public void buildRecyclerView() {
@@ -71,11 +71,13 @@ public class BasketActivity extends AppCompatActivity {
                 if (!count.getText().toString().equals("0")){
                     dishOrder.get(position).setDishCount(dishOrder.get(position).getDishCount() - 1);
                     count.setText(Integer.toString(dishOrder.get(position).getDishCount()));
+
                     local_price -= dishOrder.get(position).getDishPrice();
                     tv.setText("$" + Integer.toString(local_price));
 
                 }
             }
+
             @Override
             public void onPlusButtonClick(int position) {
                 int local_price = dishOrder.get(position).getDishPrice() * dishOrder.get(position).getDishCount();
@@ -85,6 +87,7 @@ public class BasketActivity extends AppCompatActivity {
                 count.setText(Integer.toString(dishOrder.get(position).getDishCount()));
                 local_price += dishOrder.get(position).getDishPrice();
                 tv.setText("$" + Integer.toString(local_price));
+
             }
         });
     }
