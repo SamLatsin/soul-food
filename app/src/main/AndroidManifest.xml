@@ -26,13 +26,12 @@
             android:theme="@style/WhiteBackground"/>
         <activity
             android:name=".ItemActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/BlackBackground"/>
         <activity
             android:name=".BasketActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/WhiteBackground"/>
-
-
-
     </application>
 
 </manifest>

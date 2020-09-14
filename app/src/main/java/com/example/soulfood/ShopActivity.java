@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -46,7 +47,6 @@ public class ShopActivity extends AppCompatActivity {
         );
 
         String current_restaurant = "Choose your restaurant";
-        ((GlobalOrder) this.getApplication()).setCurrentRestaurant("Choose your restaurant");
         String restaurant_name = "";
         restaurant_name = getIntent().getExtras().getString("restaurant");
         TextView tv = (TextView)findViewById(R.id.textView1);
@@ -116,6 +116,9 @@ public class ShopActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShopActivity.this, BasketActivity.class);
+                intent.putExtra("dishList", dishList);
+                //intent.putParcelableArrayListExtra("dishList", (ArrayList<DishItem>) dishList);
+                intent.putExtra("fullPrice", final_price);
                 startActivity(intent);
             }
         });
@@ -135,6 +138,9 @@ public class ShopActivity extends AppCompatActivity {
         dishList.get(data.getIntExtra("dishId", 0)).setDishCount(data.getIntExtra("itemCount", 0));
         final_count = 0;
         final_price = 0;
+        for(int position = 0; position<dishList.size(); position++){
+            Log.d("out", dishList.get(position).getDishName() + " " + Integer.toString(dishList.get(position).getDishCount()));
+        }
         for(int position = 0; position<dishList.size(); position++) {
             dishList.get(position).getDishPrice();
             dishList.get(position).getDishCount();
@@ -176,10 +182,13 @@ public class ShopActivity extends AppCompatActivity {
             @Override
             public void onButtonClick(int position) {
                 final_count += 1;
-                dishList.get(position).setDishCount(final_count);
+                dishList.get(position).setDishCount(dishList.get(position).getDishCount() + 1);
                 final_price += dishList.get(position).getDishPrice();
                 TextView  tv = (TextView )findViewById(R.id.textView6);
                 tv.setText(Integer.toString(final_count) +" items    $ " + Integer.toString(final_price) + ".00");
+                for(int pos = 0; pos<dishList.size(); pos++){
+                    Log.d("out_new", dishList.get(pos).getDishName() + " " + Integer.toString(dishList.get(pos).getDishCount()));
+                }
             }
         });
     }
