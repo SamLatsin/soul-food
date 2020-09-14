@@ -3,13 +3,17 @@
     package="com.example.soulfood">
 
     <application
-        android:allowBackup="true"
         android:name=".GlobalOrder"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
-
+        <activity
+            android:name=".SuccessActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BlackBackground">>
+        </activity>
         <activity
             android:name=".IntroActivity"
             android:screenOrientation="portrait"
@@ -23,15 +27,15 @@
         <activity
             android:name=".ShopActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/WhiteBackground"/>
+            android:theme="@style/WhiteBackground" />
         <activity
             android:name=".ItemActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/BlackBackground"/>
+            android:theme="@style/BlackBackground" />
         <activity
             android:name=".BasketActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/WhiteBackground"/>
+            android:theme="@style/WhiteBackground" />
     </application>
 
 </manifest>
